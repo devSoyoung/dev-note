@@ -30,11 +30,16 @@ MySQL을 위한 데이터베이스 엔진. [트랜잭션](http://egloos.zum.com/
 * Scalability : 애초부터 Scale-out 구조를 채택해서 쉽게 운용 가능
 
 ### 단점
-정합성이 떨어지기 때문에, 트랜잭션ㅅㅅ
+정합성이 떨어짐
 * [참고링크](http://sjh836.tistory.com/98)
 
 ## Redis(Remote Dictionary Server)
-'키-값' 구조의 비정형 데이터를 저장하고 관리하기 위한 비관계형 데이터베이스 관리 시스템. 디스크가 아닌 메모리 기반 데이터 저장소이다.
+'키-값' 구조의 비정형 데이터를 저장하고 관리하기 위한 비관계형(NoSQL) 데이터베이스 관리 시스템
+
+디스크가 아닌 메모리 기반 데이터 저장소
+
+데이터베이스로 사용될수도, 캐시로 사용될 수도 있는 기술
+
 * [참고링크](http://codingmania.tistory.com/18)
 
 ***
@@ -65,3 +70,5 @@ Remote Synchronization. local과 remote간의 데이터 동기화(두 서버 간
 
 #### Server Daemon으로 백업하기
 master 서버에서 rsync 데몬을 띄우고, backup 서버에서 master 서버에 접근하여 허용된 디렉토리의 데이터를 백업하는 방식
+
+* Daemon : 사용자가 직접적으로 제어하지 않고, 백그라운드에서 돌면서 여러 작업을 하는 프로그램
