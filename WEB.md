@@ -85,7 +85,7 @@
 * **java** : 
 * **resource** : 
 * **pom.xml** : package.json과 같은 설정파일, 스크립트 실행이나 버전과 같은 정보를 담고 있음
-* **web.xml** : Deployment Descripter, 배포 서술자 [[참고링크]](https://jayviii.tistory.com/7)
+* **web.xml** : Deployment Descripter, 배포 서술자, (보통 Web Document Root 디렉토리에 WEB-INF 폴더 아래 web.xml 파일로 존재) [[참고링크]](https://jayviii.tistory.com/7)
 
 ## 요청 처리 방식
 
@@ -169,6 +169,21 @@ default는 싱글톤(static으로 공유되고, 한 개만 생성해서 서로 �
 * Java 코드 안의 HTML 코드
 * 데이터 처리(Controller의 역할)에 좋음 - DB통신, 비즈니스 로직 호출, 데이터 읽고 확인 등
 * 서블릿 수정의 경우 자바 코드를 컴파일 한 후 동적 페이지를 처리하기 때문에, 전체 코드 업데이트 및 재배포가 필요 - 개발 생산성 저하
+
+### 서블릿 컨테이너
+* HTTP 요청을 받아서 서블릿을 실행시키고, 결과를 사용자 브라우저에 전달
+* 서블릿 실행 및 생명주기를 관리
+* 서블릿과 웹 서버가 통신할 수 있는 방법 제공
+* 멀티쓰레딩을 지원해서 클라이언트의 다중 요청을 알아서 처리 
+
+### 서블릿 동작과정
+1. 사용자의 요청이 발생하면 HTTP Request가 서블릿 컨테이너로 전달
+2. 서블릿 컨테이너는 HttpServletRequest, HttpServletResponse 객체를 생성
+3. 사용자의 요청 URL을 분석하여 어느 서블릿에 대한 요청인지 찾음 - web.xml 참조
+4. 컨테이너는 서블릿의 service() 메소드를 호출하고, doPost, doGet을 적절히 호출
+5. doGet()/doPost() 메소드는 동적 페이지를 생성해서 HttpServletResponse로 전달
+6. 응답 완료 후 HttpServletRequest, HttpServletResponse 객체를 소멸
+
 
 ## JSP
 * 자바 언어를 기반으로 하는 서버사이드 스크립트 언어
